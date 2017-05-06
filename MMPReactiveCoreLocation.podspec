@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "MMPReactiveCoreLocation"
-  s.version          = "0.6.2"
+  s.version          = "0.7.2"
   s.summary          = "A reactive CoreLocation wrapper for use with ReactiveCocoa"
   s.description      = <<-DESC
                        MMPReactiveCoreLocation is a reactive library for using CoreLocation and iBeacon with ReactiveCocoa. 
@@ -24,6 +24,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '7.0'
   s.source_files     = 'Classes'
   s.framework        = 'CoreLocation', 'CoreBluetooth'
-  s.dependency 'ReactiveCocoa'
+  s.dependency 'ReactiveObjC'
   s.requires_arc     = true    
 end
