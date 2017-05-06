@@ -332,15 +332,15 @@ typedef NS_ENUM(NSInteger, MMPLocationServiceType) {
 - (RACSignal *)errors {
     return [[[[self rac_signalForSelector:@selector(locationManager:didFailWithError:)
                              fromProtocol:@protocol(CLLocationManagerDelegate)]
-                    reduceEach:^id(id _, NSError *error){
-                        return error;
-                    }]
-                    filter:^BOOL(NSError *error) {
-                        return error.code != kCLErrorLocationUnknown;
-                    }]
-                    flattenMap:^RACStream *(NSError *error) {
-                        return [RACSignal error:error];
-                    }];
+              reduceEach:^id(id _, NSError *error){
+                  return error;
+              }]
+             filter:^BOOL(NSError *error) {
+                 return error.code != kCLErrorLocationUnknown;
+             }]
+            flattenMap:^__kindof RACSignal * _Nullable(NSError *error) {
+                return [RACSignal error:error];
+            }];
 }
 
 - (RACSignal *)authorizationStatus {
